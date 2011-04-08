@@ -1,0 +1,21 @@
+<h1>Listing seats</h1>
+
+<table>
+<% a = 0%>
+<% @seats.each do |seat| %>
+  <% if a == 8 %>
+    <% a = 0%>
+    <tr></tr>
+  <%end%>
+  <td><%= seat.who %></td>
+  <td><%= link_to seat.computer, :controller => "seats", :action => "sit", :id => seat.id %></td>
+  <%a = a+1%>
+<% end %>
+</table>
+<br />
+<%= link_to "New User", :controller => "users", :action => "new" %>
+<br />
+<%= link_to "Log in", :controller => "login" %>
+<br />
+<%= link_to "Log out", :controller => "logout" %>
+<br />

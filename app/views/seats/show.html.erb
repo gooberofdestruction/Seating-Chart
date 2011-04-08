@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Who:</b>
+  <%= @seat.who %>
+</p>
+
+<p>
+  <b>Computer:</b>
+  <%= @seat.computer %>
+</p>
+
+
+<%= link_to 'Edit', edit_seat_path(@seat) %> |
+<%= link_to 'Back', seats_path %>

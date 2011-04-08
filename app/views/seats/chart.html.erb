@@ -1,0 +1,23 @@
+<h1>Listing seats</h1>
+
+<table>
+  <tr>
+    <th>Who</th>
+    <th>Computer</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+<% a = 0%>
+<% @seats.each do |seat| %>
+  <% if a == 8 %>
+    <% a = 0%>
+    <tr></tr>
+  <%end%>
+  <td><%= seat.who %></td>
+  <td><%= seat.computer %></td>
+  <%a = a+1%>
+<% end %>
+</table>
+
+<br />

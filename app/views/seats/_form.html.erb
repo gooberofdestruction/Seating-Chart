@@ -1,0 +1,25 @@
+<%= form_for(@seat) do |f| %>
+  <% if @seat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@seat.errors.count, "error") %> prohibited this seat from being saved:</h2>
+
+      <ul>
+      <% @seat.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :who %><br />
+    <%= f.text_field :who %>
+  </div>
+  <div class="field">
+    <%= f.label :computer %><br />
+    <%= f.text_field :computer %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
