@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
   end
   
   def destroy
-    #remove_user
+    remove_user
     reset_session
     redirect_to "/", :notice => "You successfully logged out"
   end
