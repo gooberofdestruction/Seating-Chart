@@ -1,5 +1,5 @@
 SeatingChart::Application.routes.draw do
-  root :to => "seats#chart"
+  root :to => "seats#ajax"
   
   resources :seats
   resources :users

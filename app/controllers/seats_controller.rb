@@ -1,12 +1,23 @@
 class SeatsController < ApplicationController
   
-  before_filter :authenticate, :except => [:index, :show]
+  before_filter :authenticate, :except => [:index, :ajax, :show]
   
   # GET /seats
   # GET /seats.xml
   def index
     @seats = Seat.all
-
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @seats }
+    end
+  end
+  
+  # GET /seats
+  # GET /seats.xml
+  def ajax
+    @seats = Seat.all
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @seats }
@@ -21,7 +32,9 @@ class SeatsController < ApplicationController
       @seats.update_attributes(:who => current_user_name)
     end
     
-    redirect_to seats_path
+    respond_to do |format|
+      format.xml  { render :xml => @seats }
+    end
   end
   
   # GET /seats/1
