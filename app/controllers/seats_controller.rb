@@ -16,7 +16,7 @@ class SeatsController < ApplicationController
   # GET /seats
   # GET /seats.xml
   def ajax
-    @seats = Seat.all
+    @seats = Seat.find(:all, :order => 'id')
     
     respond_to do |format|
       format.html # index.html.erb
